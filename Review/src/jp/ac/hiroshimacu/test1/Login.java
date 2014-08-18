@@ -49,59 +49,61 @@ public class Login extends HttpServlet {
         String name = request.getParameter("username");
         String pass = request.getParameter("userpassword");
         
-        
-        out.println("<html>");
-        out.println("<head>");
-        out.println("<title>ʅ（‾◡◝）ʃ</title>");
-        out.println("<script>");
-        out.println("function returnpage(){"
-        		+ "location.href='http://localhost:8080/tomcat_test/Loginpage';}");
-        out.println("</script>");
-        out.println("</head>");
-        out.println("<body>");
-        
-        Connection conn = null;
-        String url = "jdbc:postgresql://localhost/review";
-        String user = "postgres";
-        String password = "password";
-        try{
-        	Class.forName("org.postgresql.Driver").newInstance();
-        	conn = DriverManager.getConnection(url,user,password);
-        	String sql = "select * from user_review";
-        	Statement stmt = conn.createStatement();
-        	ResultSet rs = stmt.executeQuery(sql);
-        	while(rs.next()){
-        		int code = rs.getInt("id");
-        		String used_result = rs.getString("used_result");
-        		String user_request = rs.getString("user_request");
-        		String user_claim = rs.getString("user_claim");
-        		out.println("<p>");
-        		out.println("ユーザーid : "+code+"<br>");
-        		out.println("感想 : "+used_result+"<br>");
-        		out.println("要望 : "+user_request+"<br>");
-        		out.println("苦情 : "+user_claim+"<br>");
-        		out.println("</p>");
-        	}
-        	rs.close();
-        	stmt.close();
-        }catch (ClassNotFoundException e){
-            out.println("ClassNotFoundException:" + e.getMessage());
-        }catch (SQLException e){
-            out.println("SQLException:" + e.getMessage());
-        }catch (Exception e){
-            out.println("Exception:" + e.getMessage());
-        }finally{
-            try{
-                if (conn != null){
-                    conn.close();
-                }
-            }catch (SQLException e){
-                out.println("SQLException:" + e.getMessage());
-            }
-        } 
-        out.println("<input type='button' value='前のページに戻る' name='Return' onclick='returnpage()'>");
-        out.println("</body>");
-        out.println("</html>");
+        if(passname == name && passpassword == pass){
+	        out.println("<html>");
+	        out.println("<head>");
+	        out.println("<title>ʅ（‾◡◝）ʃ</title>");
+	        out.println("<script>");
+	        out.println("function returnpage(){"
+	        		+ "location.href='http://localhost:8080/tomcat_test/Loginpage';}");
+	        out.println("</script>");
+	        out.println("</head>");
+	        out.println("<body>");
+	        
+	        Connection conn = null;
+	        String url = "jdbc:postgresql://localhost/review";
+	        String user = "postgres";
+	        String password = "password";
+	        try{
+	        	Class.forName("org.postgresql.Driver").newInstance();
+	        	conn = DriverManager.getConnection(url,user,password);
+	        	String sql = "select * from user_review";
+	        	Statement stmt = conn.createStatement();
+	        	ResultSet rs = stmt.executeQuery(sql);
+	        	while(rs.next()){
+	        		int code = rs.getInt("id");
+	        		String used_result = rs.getString("used_result");
+	        		String user_request = rs.getString("user_request");
+	        		String user_claim = rs.getString("user_claim");
+	        		out.println("<p>");
+	        		out.println("ユーザーid : "+code+"<br>");
+	        		out.println("感想 : "+used_result+"<br>");
+	        		out.println("要望 : "+user_request+"<br>");
+	        		out.println("苦情 : "+user_claim+"<br>");
+	        		out.println("</p>");
+	        	}
+	        	rs.close();
+	        	stmt.close();
+	        }catch (ClassNotFoundException e){
+	            out.println("ClassNotFoundException:" + e.getMessage());
+	        }catch (SQLException e){
+	            out.println("SQLException:" + e.getMessage());
+	        }catch (Exception e){
+	            out.println("Exception:" + e.getMessage());
+	        }finally{
+	            try{
+	                if (conn != null){
+	                    conn.close();
+	                }
+	            }catch (SQLException e){
+	                out.println("SQLException:" + e.getMessage());
+	            }
+	        } 
+	        out.println("<input type='button' value='前のページに戻る' name='Return' onclick='returnpage()'>");
+	        out.println("</body>");
+	        out.println("</html>");
+		}else{
+			out.println("Not connect");
+		}
 	}
-
 }
