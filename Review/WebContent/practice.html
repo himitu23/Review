@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+<title>国内事前研修　演習</title>
+<script>
+	function onSubmit(){
+		var error = "入力に不備があります。";
+		var flg = 0;
+		var used_result = document.form.used_result.value;
+		var request = document.form.request.value;
+		var claim = document.form.claim.value;
+		if(used_result == "" || request == "" || claim == ""){
+			flg = 1;
+		}
+		if(flg){
+			alert(error);
+			return false;
+		}
+		if(confirm('送信してよろしいですか？')){
+			return true;
+		}else{
+			alert('キャンセルされました。');
+			return false;
+		}
+	}
+</script>
+</head>
+<body>
+<h1>お客様のレビュー</h1>
+<form name="form" action="Practice" method="post" onSubmit="return onSubmit()">
+	<table border="1">
+	<tr><td>感想</td><td><input type="text" name="used_result"></td></tr>
+	<tr><td>要望</td><td><input type="text" name="request"></td></tr>
+	<tr><td>苦情</td><td><input type="text" name="claim"></td></tr>
+	<tr><td><input type="submit" name="submit" value="提出"></td></tr>
+	</table>
+</form>
+<form name="login" action="Loginpage" method="post">
+	社員はこちらから>>><input type="submit" name="loginpage" value="ログインページ">
+</form>
+</body>
+</html>
