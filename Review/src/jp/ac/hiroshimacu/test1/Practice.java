@@ -81,6 +81,7 @@ public class Practice extends HttpServlet {
         	pstmt.setString(2, used_result);
         	pstmt.setString(3, user_request);
         	pstmt.setString(4, user_claim);
+        	int num = pstmt.executeUpdate();
             pstmt.close();
         }catch (ClassNotFoundException e){
             //out.println("ClassNotFoundException:" + e.getMessage());
