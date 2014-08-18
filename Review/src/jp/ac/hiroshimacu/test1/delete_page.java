@@ -37,7 +37,8 @@ public class delete_page extends HttpServlet {
         out.println("<title>“ŠeƒtƒH[ƒ€</title>");
         out.println("</head>");
         out.println("<body>");
-        out.println("aaaa");
+        out.println("aaaaaaaab");
+        out.println("yyyyyyyyyyyyyyyyyyyyyyyyyyy");
         out.println("</body>");
 	}
 
