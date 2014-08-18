@@ -51,7 +51,7 @@ public class Practice extends HttpServlet {
         String user_claim = request.getParameter("claim");
         out.println("<html>");
         out.println("<head>");
-        out.println("<title>ʅ（‾◡◝）ʃ</title>");
+        out.println("<title>投稿情報確認フォーム</title>");
         out.println("<script>");
         out.println("function returnpage(){"
         		+ "location.href='http://localhost:8080/Review/practice.html';}");
@@ -82,7 +82,7 @@ public class Practice extends HttpServlet {
         	pstmt.setString(4, user_claim);
             pstmt.close();
         }catch (ClassNotFoundException e){
-            out.println("ClassNotFoundException:" + e.getMessage());
+            //out.println("ClassNotFoundException:" + e.getMessage());
         }catch (SQLException e){
             out.println("SQLException:" + e.getMessage());
         }catch (Exception e){
@@ -100,6 +100,7 @@ public class Practice extends HttpServlet {
         out.println("要望 : "+user_request+"<br>");
         out.println("苦情 : "+user_claim+"<br>");
         out.println("を投稿しました。");
+        out.println("<br/><br/>");
         out.println("<input type='button' value='前のページに戻る' name='Return' onclick='returnpage()'>");
         out.println("</body>");
         out.println("</html>");
