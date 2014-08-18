@@ -49,7 +49,7 @@ public class Loginpage extends HttpServlet {
         out.println("</script>");
         out.println("</head>");
         out.println("<body>");
-        out.println("<form name='login' action='Login'>");
+        out.println("<form name='login' action='Login' method='post'>");
         out.println("ユーザー名 : <input type='text' value='' name='username'><br>");
         out.println("パスワード  : <input type='password' name='userpassword'><br>");
         out.println("<input type='submit' value='認証' name='login'>");
