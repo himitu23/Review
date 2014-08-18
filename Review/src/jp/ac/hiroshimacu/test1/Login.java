@@ -57,7 +57,7 @@ public class Login extends HttpServlet {
         	response.addCookie(cookie_pass);
 	        out.println("<html>");
 	        out.println("<head>");
-	        out.println("<title>ʅ（‾◡◝）ʃ</title>");
+	        out.println("<title>ʅ（‾◡◝）ʃ < ユーザーレビュー</title>");
 	        out.println("<script>");
 	        out.println("function returnpage(){"
 	        		+ "location.href='http://localhost:8080/Review/practice.html';}");
