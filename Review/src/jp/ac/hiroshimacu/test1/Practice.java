@@ -77,7 +77,6 @@ public class Practice extends HttpServlet {
         	sql = "insert into user_review(id,used_result,user_request,user_claim) values (?,?,?,?)";
         	PreparedStatement pstmt = conn.prepareStatement(sql);
         	pstmt.setInt(1, max_id+1);
-        	out.println(max_id+1);
         	pstmt.setString(2, used_result);
         	pstmt.setString(3, user_request);
         	pstmt.setString(4, user_claim);
