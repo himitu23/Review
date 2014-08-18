@@ -45,6 +45,7 @@ public class Extern_database extends HttpServlet {
         out.println("</head>");
         out.println("<body>");
         out.println("aaaa");
+        out.println("changesa");
         out.println("</body>");
 	}
 
