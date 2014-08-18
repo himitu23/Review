@@ -55,7 +55,7 @@ public class Login extends HttpServlet {
 	        out.println("<title>ʅ（‾◡◝）ʃ</title>");
 	        out.println("<script>");
 	        out.println("function returnpage(){"
-	        		+ "location.href='http://localhost:8080/tomcat_test/Loginpage';}");
+	        		+ "location.href='http://localhost:8080/Review/Loginpage';}");
 	        out.println("</script>");
 	        out.println("</head>");
 	        out.println("<body>");
