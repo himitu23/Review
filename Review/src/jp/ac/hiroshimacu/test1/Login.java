@@ -10,6 +10,7 @@ import java.sql.Statement;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -50,6 +51,10 @@ public class Login extends HttpServlet {
         String user_p = request.getParameter("userpassword");
         
         if(pass_name.equals(user_n) && pass_password.equals(user_p)){
+        	Cookie cookie_name = new Cookie("name",user_n);
+        	Cookie cookie_pass = new Cookie("pass",user_p);
+        	response.addCookie(cookie_name);
+        	response.addCookie(cookie_pass);
 	        out.println("<html>");
 	        out.println("<head>");
 	        out.println("<title>ʅ（‾◡◝）ʃ</title>");
