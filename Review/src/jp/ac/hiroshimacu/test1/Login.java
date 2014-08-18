@@ -44,12 +44,12 @@ public class Login extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
         PrintWriter out = response.getWriter();
         request.setCharacterEncoding("UTF-8");
-        String passname = "user";
-        String passpassword = "password";
-        String name = request.getParameter("username");
-        String pass = request.getParameter("userpassword");
+        String pass_name = "user";
+        String pass_password = "password";
+        String user_n = request.getParameter("username");
+        String user_p = request.getParameter("userpassword");
         
-        if(passname == name && passpassword == pass){
+        if(pass_name == user_n && pass_password == user_p){
 	        out.println("<html>");
 	        out.println("<head>");
 	        out.println("<title>ʅ（‾◡◝）ʃ</title>");
