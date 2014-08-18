@@ -10,7 +10,7 @@
 		var used_result = document.form.used_result.value;
 		var request = document.form.request.value;
 		var claim = document.form.claim.value;
-		if(used_result == "" || request == "" || claim == ""){
+		if(used_result == "" && request == "" && claim == ""){
 			flg = 1;
 		}
 		if(flg){
