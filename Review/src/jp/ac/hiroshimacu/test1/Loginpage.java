@@ -29,27 +29,6 @@ public class Loginpage extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.setContentType("text/html; charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        request.setCharacterEncoding("UTF-8");
-
-        out.println("<html>");
-        out.println("<head>");
-        out.println("<title>ログインページ</title>");
-        out.println("<script>");
-        out.println("function returnpage(){"
-        		+ "location.href='http://localhost:8080/Review/practice.html';}");
-        out.println("</script>");
-        out.println("</head>");
-        out.println("<body>");
-        out.println("<form name='login' action='Login'>");
-        out.println("ユーザー名 : <input type='text' value='' name='username'>");
-        out.println("パスワード  : <input type='password' name='userpassword'>");
-        out.println("<input type='submit' value='認証' name='login' method = 'post'>");
-        out.println("</form>");
-        out.println("<input type='button' value='前のページに戻る' name='Return' onclick='returnpage()'>");
-        out.println("</body>");
-        out.println("</html>");
 	}
 
 	/**
@@ -70,10 +49,12 @@ public class Loginpage extends HttpServlet {
         out.println("</script>");
         out.println("</head>");
         out.println("<body>");
-        out.println("<form name='login' action='Login'>");
-        out.println("ユーザー名 : <input type='text' value='' name='username'>");
-        out.println("パスワード  : <input type='password' name='userpassword'>");
-        out.println("<input type='submit' value='認証' name='login' method = 'post'>");
+
+        out.println("<form name='login' action='Login' method='post'>");
+        out.println("ユーザー名 : <input type='text' value='' name='username'><br>");
+        out.println("パスワード  : <input type='password' name='userpassword'><br>");
+        out.println("<input type='submit' value='認証' name='login'>");
+
         out.println("</form>");
         out.println("<input type='button' value='前のページに戻る' name='Return' onclick='returnpage()'>");
         out.println("</body>");

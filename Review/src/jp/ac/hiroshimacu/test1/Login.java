@@ -49,7 +49,7 @@ public class Login extends HttpServlet {
         String user_n = request.getParameter("username");
         String user_p = request.getParameter("userpassword");
         
-        if(pass_name == user_n && pass_password == user_p){
+        //if(pass_name == user_n && pass_password == user_p){
 	        out.println("<html>");
 	        out.println("<head>");
 	        out.println("<title>ʅ（‾◡◝）ʃ</title>");
@@ -102,8 +102,8 @@ public class Login extends HttpServlet {
 	        out.println("<input type='button' value='前のページに戻る' name='Return' onclick='returnpage()'>");
 	        out.println("</body>");
 	        out.println("</html>");
-		}else{
-			out.println("Not connect");
-		}
+		//}else{
+		//	out.println("Not connect");
+		//}
 	}
 }
