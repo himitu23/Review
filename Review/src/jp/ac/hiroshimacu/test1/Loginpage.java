@@ -38,14 +38,14 @@ public class Loginpage extends HttpServlet {
         out.println("<title>ログインページ</title>");
         out.println("<script>");
         out.println("function returnpage(){"
-        		+ "location.href='http://localhost:8080/tomcat_test/practice.html';}");
+        		+ "location.href='http://localhost:8080/Review/practice.html';}");
         out.println("</script>");
         out.println("</head>");
         out.println("<body>");
         out.println("<form name='login' action='Login'>");
         out.println("ユーザー名 : <input type='text' value='' name='username'>");
         out.println("パスワード  : <input type='password' name='userpassword'>");
-        out.println("<input type='submit' value='認証' name='login'>");
+        out.println("<input type='submit' value='認証' name='login' method = >");
         out.println("</form>");
         out.println("<input type='button' value='前のページに戻る' name='Return' onclick='returnpage()'>");
         out.println("</body>");
