@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -39,7 +40,21 @@ public class Loginpage extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
         PrintWriter out = response.getWriter();
         request.setCharacterEncoding("UTF-8");
-
+        String[] name = {"name","pass"};
+        String[] key = {"user","password"};
+        Cookie cookie[] = request.getCookies();
+        int count=0;
+        if(cookie != null){
+        	for(int i=0;i < cookie.length;i++){
+        		if(cookie[i].getName().equals(name[i])){
+        			if(key[i].equals(cookie[i].getValue())){
+        				out.println(cookie[i].getValue());
+        				count++;
+        			}
+        		}
+        	}
+        	response.sendRedirect("http://localhost:8080/Review/Login");
+        }
         out.println("<html>");
         out.println("<head>");
         out.println("<title>ログインページ</title>");
@@ -49,12 +64,10 @@ public class Loginpage extends HttpServlet {
         out.println("</script>");
         out.println("</head>");
         out.println("<body>");
-
         out.println("<form name='login' action='Login' method='post'>");
         out.println("ユーザー名 : <input type='text' value='' name='username'><br>");
         out.println("パスワード  : <input type='password' name='userpassword'><br>");
         out.println("<input type='submit' value='認証' name='login'>");
-
         out.println("</form>");
         out.println("<input type='button' value='前のページに戻る' name='Return' onclick='returnpage()'>");
         out.println("</body>");
