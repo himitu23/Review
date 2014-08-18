@@ -107,20 +107,22 @@ public class Login extends HttpServlet {
         String user_n = request.getParameter("username");
         String user_p = request.getParameter("userpassword");
         
+        out.println("<html>");
+        out.println("<head>");
+        out.println("<title>ʅ（‾◡◝）ʃ < ユーザーレビュー</title>");
+        out.println("<script>");
+        out.println("function returnpage(){"
+        		+ "location.href='http://localhost:8080/Review/Loginpage';}");
+        out.println("function returnhome(){"
+        		+ "location.href='http://localhost:8080/Review/practice.html';}");
+        out.println("</script>");
+        out.println("</head>");
+        out.println("<body>");
         if(pass_name.equals(user_n) && pass_password.equals(user_p)){
         	Cookie cookie_name = new Cookie("name",user_n);
         	Cookie cookie_pass = new Cookie("pass",user_p);
         	response.addCookie(cookie_name);
         	response.addCookie(cookie_pass);
-	        out.println("<html>");
-	        out.println("<head>");
-	        out.println("<title>ʅ（‾◡◝）ʃ < ユーザーレビュー</title>");
-	        out.println("<script>");
-	        out.println("function returnpage(){"
-	        		+ "location.href='http://localhost:8080/Review/practice.html';}");
-	        out.println("</script>");
-	        out.println("</head>");
-	        out.println("<body>");
 	        
 	        Connection conn = null;
 	        String url = "jdbc:postgresql://localhost/review";
@@ -161,11 +163,12 @@ public class Login extends HttpServlet {
 	                out.println("SQLException:" + e.getMessage());
 	            }
 	        } 
-	        out.println("<input type='button' value='前のページに戻る' name='Return' onclick='returnpage()'>");
-	        out.println("</body>");
-	        out.println("</html>");
+	        out.println("<input type='button' value='Home画面に戻る' name='Return' onclick='returnhome()'>");
 		}else{
 			out.println("Not connect");
+	        out.println("<input type='button' value='前のページに戻る' name='Return' onclick='returnpage()'>");
 		}
+        out.println("</body>");
+        out.println("</html>");
 	}
 }
