@@ -54,7 +54,7 @@ public class Practice extends HttpServlet {
         out.println("<title>投稿情報確認フォーム</title>");
         out.println("<script>");
         out.println("function returnpage(){"
-        		+ "location.href='./Review/practice.html';}");
+        		+ "location.href='../Review/practice.html';}");
         out.println("</script>");
         out.println("</head>");
         out.println("<body>");

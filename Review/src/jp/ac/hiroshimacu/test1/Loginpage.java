@@ -39,7 +39,7 @@ public class Loginpage extends HttpServlet {
         out.println("<title>ログインページ</title>");
         out.println("<script>");
         out.println("function returnpage(){"
-        		+ "location.href='./Review/practice.html';}");
+        		+ "location.href='../Review/practice.html';}");
         out.println("</script>");
         out.println("</head>");
         out.println("<body>");
@@ -74,14 +74,14 @@ public class Loginpage extends HttpServlet {
         			}
         		}
         	}
-        	response.sendRedirect("./Review/Login");
+        	response.sendRedirect("../Review/Login");
         }
         out.println("<html>");
         out.println("<head>");
         out.println("<title>ログインページ</title>");
         out.println("<script>");
         out.println("function returnpage(){"
-        		+ "location.href='./Review/practice.html';}");
+        		+ "location.href='../Review/practice.html';}");
         out.println("</script>");
         out.println("</head>");
         out.println("<body>");
