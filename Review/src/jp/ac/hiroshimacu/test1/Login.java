@@ -165,7 +165,7 @@ public class Login extends HttpServlet {
 	        } 
 	        out.println("<input type='button' value='Home画面に戻る' name='Return' onclick='returnhome()'>");
 		}else{
-			out.println("Not connect");
+			out.println("Can't connect");
 	        out.println("<input type='button' value='前のページに戻る' name='Return' onclick='returnpage()'>");
 		}
         out.println("</body>");
