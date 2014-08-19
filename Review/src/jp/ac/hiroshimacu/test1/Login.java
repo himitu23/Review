@@ -63,6 +63,11 @@ public class Login extends HttpServlet {
 	        	String sql = "select * from user_review";
 	        	Statement stmt = conn.createStatement();
 	        	ResultSet rs = stmt.executeQuery(sql);
+
+	           	out.println("<form action = 'Impress' method = 'get'>");
+	        	out.println("<input type='Submit' value='感想' >");
+	        	out.println("</form>");
+
 	        	while(rs.next()){
 	        		int code = rs.getInt("id");
 	        		String used_result = rs.getString("used_result");
@@ -137,6 +142,10 @@ public class Login extends HttpServlet {
         	response.addCookie(cookie_name);
         	response.addCookie(cookie_pass);
 	        
+        	out.println("<form action = 'Impress' method = 'get'>");
+        	out.println("<input type='Submit' value='感想' >");
+        	out.println("</form>");
+        	
 	        Connection conn = null;
 	        String url = "jdbc:postgresql://localhost/review";
 	        String user = "postgres";
