@@ -136,7 +136,8 @@ public class Login extends HttpServlet {
 	        	conn = DriverManager.getConnection(url,user,password);
 	        	String sql = "select * from user_review";
 	        	Statement stmt = conn.createStatement();
-	        	ResultSet rs = stmt.executeQuery(sql);	        	while(rs.next()){
+	        	ResultSet rs = stmt.executeQuery(sql);
+	        	while(rs.next()){
 	        		int code = rs.getInt("id");
 	        		String used_result = rs.getString("used_result");
 	        		String user_request = rs.getString("user_request");
