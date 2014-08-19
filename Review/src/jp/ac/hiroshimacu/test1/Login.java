@@ -54,6 +54,9 @@ public class Login extends HttpServlet {
 	        String url = "jdbc:postgresql://localhost/review";
 	        String user = "postgres";
 	        String password = "password";
+    		int cnt_claim=0;
+    		int cnt_result=0;
+    		int cnt_request=0;
 	        try{
 	        	Class.forName("org.postgresql.Driver").newInstance();
 	        	conn = DriverManager.getConnection(url,user,password);
@@ -65,6 +68,15 @@ public class Login extends HttpServlet {
 	        		String used_result = rs.getString("used_result");
 	        		String user_request = rs.getString("user_request");
 	        		String user_claim = rs.getString("user_claim");
+	        		if(!user_claim.equals("")){
+	        			cnt_claim++;
+	        		}
+	        		if(!user_request.equals("")){
+	        			cnt_request++;
+	        		}
+	        		if(!used_result.equals("")){
+	        			cnt_result++;
+	        		}
 	        		out.println("<p>");
 	        		out.println("ユーザーid : "+code+"<br>");
 	        		out.println("感想 : "+used_result+"<br>");
@@ -88,7 +100,8 @@ public class Login extends HttpServlet {
 	            }catch (SQLException e){
 	                out.println("SQLException:" + e.getMessage());
 	            }
-	        } 
+	        }  
+	        out.println("感想 : "+cnt_result+"件<br>要望 : "+cnt_request+"件<br>苦情 : "+cnt_claim+"件<br>");   
 	        out.println("<input type='button' value='前のページに戻る' name='Return' onclick='returnpage()'>");
 	        out.println("</body>");
 	        out.println("</html>");
