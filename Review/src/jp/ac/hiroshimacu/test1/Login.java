@@ -128,17 +128,28 @@ public class Login extends HttpServlet {
 	        String url = "jdbc:postgresql://localhost/review";
 	        String user = "postgres";
 	        String password = "password";
+    		int cnt_claim=0;
+    		int cnt_result=0;
+    		int cnt_request=0;
 	        try{
 	        	Class.forName("org.postgresql.Driver").newInstance();
 	        	conn = DriverManager.getConnection(url,user,password);
 	        	String sql = "select * from user_review";
 	        	Statement stmt = conn.createStatement();
-	        	ResultSet rs = stmt.executeQuery(sql);
-	        	while(rs.next()){
+	        	ResultSet rs = stmt.executeQuery(sql);	        	while(rs.next()){
 	        		int code = rs.getInt("id");
 	        		String used_result = rs.getString("used_result");
 	        		String user_request = rs.getString("user_request");
 	        		String user_claim = rs.getString("user_claim");
+	        		if(!user_claim.equals("")){
+	        			cnt_claim++;
+	        		}
+	        		if(!user_request.equals("")){
+	        			cnt_request++;
+	        		}
+	        		if(!used_result.equals("")){
+	        			cnt_result++;
+	        		}
 	        		out.println("<p>");
 	        		out.println("ユーザーid : "+code+"<br>");
 	        		out.println("感想 : "+used_result+"<br>");
@@ -163,6 +174,7 @@ public class Login extends HttpServlet {
 	                out.println("SQLException:" + e.getMessage());
 	            }
 	        } 
+	        out.println("感想 : "+cnt_result+"件<br>要望 : "+cnt_request+"件<br>苦情 : "+cnt_claim+"件<br>");
 	        out.println("<input type='button' value='Home画面に戻る' name='Return' onclick='returnhome()'>");
 		}else{
 			out.println("Can't connect");
